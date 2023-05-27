@@ -1,0 +1,21 @@
+name: Error Notifications
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  error-notifications:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests and report errors
+        run: npm test && send-error-notifications.sh
+
+        

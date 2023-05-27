@@ -1,0 +1,21 @@
+name: Pull Request Notifications
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pull-request-notifications:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Send notification to reviewers
+        uses: some-notification-action
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          reviewers: octocat, john-doe
+
+          

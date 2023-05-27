@@ -1,0 +1,23 @@
+name: Dependency Updates
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  dependency-updates:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update dependencies
+        run: npm update
+
+      - name: Create pull request for dependency updates
+        uses: some-pull-request-action
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
