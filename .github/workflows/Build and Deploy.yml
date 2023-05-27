@@ -16,12 +16,6 @@ jobs:
         run: npm install && npm run build
 
       - name: Deploy
-<<<<<<< HEAD
         uses: some-user/some-deployment-action@v1.0.0
         with:
           token: ${{ secrets.DEPLOYMENT_TOKEN }} 
-=======
-        uses: some-deployment-action
-        with:
-          token: ${{ secrets.DEPLOYMENT_TOKEN }} 
->>>>>>> c3bed546f1d01af21959bd6fa8b5b7e3a2c65062
